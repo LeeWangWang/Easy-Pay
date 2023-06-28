@@ -1,4 +1,4 @@
-package com.example.easypay;
+package com.easypay;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
