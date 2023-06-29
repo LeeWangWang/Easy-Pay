@@ -3,6 +3,7 @@ package com.easypay.module.sys.entity;
 import com.easypay.common.model.PageBean;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,6 +20,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "sys_user")
+@EqualsAndHashCode(callSuper=false)
 public class SysUser extends PageBean implements Serializable {
     /**
      * 用户id

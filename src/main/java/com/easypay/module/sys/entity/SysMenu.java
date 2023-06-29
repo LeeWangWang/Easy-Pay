@@ -1,9 +1,12 @@
 package com.easypay.module.sys.entity;
 
+import com.easypay.common.model.PageBean;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -17,7 +20,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "sys_menu")
-public class SysMenu {
+@EqualsAndHashCode(callSuper=false)
+public class SysMenu extends PageBean implements Serializable {
     /**
      * 菜单id
      */

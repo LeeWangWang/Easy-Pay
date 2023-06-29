@@ -1,6 +1,7 @@
 package com.easypay.module.sys.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "sys_role_org")
+@EqualsAndHashCode(callSuper=false)
 public class SysRoleOrg implements Serializable {
     /**
      * 记录id

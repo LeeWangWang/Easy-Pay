@@ -1,7 +1,7 @@
 package com.easypay.common.dynamicquery;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.query.sql.internal.NativeQueryImpl;
+import org.hibernate.query.internal.NativeQueryImpl;
 import org.hibernate.transform.Transformers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

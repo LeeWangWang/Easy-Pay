@@ -2,6 +2,7 @@ package com.easypay.common.dynamicquery;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @Date: 6/28/23 2:32 PM
  * @Version: V1
  **/
+@Service
 public interface DynamicQuery {
     /**
      * 保存

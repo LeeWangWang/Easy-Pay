@@ -2,6 +2,7 @@ package com.easypay.module.sys.entity;
 
 import com.easypay.common.model.PageBean;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -17,6 +18,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "sys_log")
+@EqualsAndHashCode(callSuper=false)
 public class SysLog extends PageBean implements Serializable {
 
     @Id

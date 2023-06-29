@@ -3,6 +3,7 @@ package com.easypay.module.sys.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
@@ -15,7 +16,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "sys_macro")
-public class SysMacro {
+public class SysMacro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

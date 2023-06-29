@@ -3,6 +3,7 @@ package com.easypay.module.sys.entity;
 import com.easypay.common.model.PageBean;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,6 +19,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "sys_org")
+@EqualsAndHashCode(callSuper=false)
 public class SysOrg extends PageBean implements Serializable {
     /**
      * 机构id

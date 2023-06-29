@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.easypay.common.config.BigDecimalSerialize;
 import com.easypay.common.model.PageBean;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,6 +22,7 @@ import java.sql.Timestamp;
 @Data
 @Entity
 @Table(name = "app_order")
+@EqualsAndHashCode(callSuper=false)
 public class Order extends PageBean implements Serializable{
 
     /**
