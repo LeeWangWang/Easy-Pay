@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:replace="common/head :: head(link)"/>
+<body>
+<div id="app" class="ok-body" v-cloak>
+  <template>
+    <tabs>
+      <tab-pane label="微信支付"  icon="md-build" >
+        <div style="text-align: center; padding: 20px 0px; border-bottom: 1px solid rgb(222, 222, 222);">
+          <div>
+            <img src="../images/native.png">
+          </div>
+          <p style="font-size: 20px; margin: 10px;">扫码支付</p>
+          <p style="font-size: 15px; color: rgb(153, 153, 153);">用户打开"微信扫一扫，扫描商家二维码完成支付</p>
+          <p>
+            支付金额： <input-number style="width:160px" v-model="product.totalFee" :max="100000"  placeholder="请输入金额"></input-number>
+          </p>
+          <p style="margin: 10px;">
+            <i-button type="primary"  @click="pay('wxPay')">在线体验</i-button>
+          </p>
+        </div>
+      </tab-pane>
+      <tab-pane label="支付宝支付"  icon="logo-usd" >
+        <div style="text-align: center; padding: 20px 0px; border-bottom: 1px solid rgb(222, 222, 222);">
+          <div>
+            <img src="../images/native.png">
+          </div>
+          <p style="font-size: 20px; margin: 10px;">扫码支付</p>
+          <p style="font-size: 15px; color: rgb(153, 153, 153);">用户打开"支付宝扫一扫，扫描商家二维码完成支付</p>
+          <p>
+            支付金额： <input-number style="width:160px" v-model="product.totalFee" :max="100000"  placeholder="请输入金额"></input-number>
+          </p>
+          <p style="margin: 10px;">
+            <i-button type="primary"  @click="pay('aliPay')">在线体验</i-button>
+          </p>
+        </div>
+      </tab-pane>
+      <tab-pane label="公众号支付"  icon="ios-chatbubbles" >
+        <div style="text-align: center; padding: 20px 0px; border-bottom: 1px solid rgb(222, 222, 222);">
+          <div>
+            <img style="height: 250px;width: 250px" src="../images/weiXin.png">
+          </div>
+          <p style="font-size: 20px; margin: 10px;">公众号支付</p>
+          <p style="font-size: 15px; color: rgb(153, 153, 153);">用户打开"微信扫一扫，扫描商家二维码完成支付</p>
+        </div>
+      </tab-pane>
+    </tabs>
+  </template>
+  <div id="userId" v-show="false"><shiro:principal property="userId"/></div>
+</div>
+<div th:replace="common/foot :: foot(script)"></div>
+<script th:inline="none">
+  layui.use(["okUtils", "okLayer"], function () {
+    var okUtils = layui.okUtils;
+    var okLayer = layui.okLayer;
+    var $ = layui.jquery;
+    var vm = new Vue({
+      el: '#app',
+      data: function(){
+        return {
+          product:{
+            productId:1,
+            body:"胡丽娜精美手办",
+            totalFee:'1'
+          }
+        }
+      },
+      methods: {
+        pay : function(url) {
+          okUtils.ajaxCloud({
+            url:"/pay/"+url,
+            param : vm.product,
+            success : function(result) {
+              var url = result.msg;
+              okUtils.dialogOpen({
+                title: '支付',
+                url: url,
+                scroll : true,
+                width: '260px',
+                height: '310px',
+                btn:[]
+              });
+            }
+          });
+        }
+      },
+      created: function() {
+
+      }
+    })
+  });
+</script>
+</body>
+</html>
+

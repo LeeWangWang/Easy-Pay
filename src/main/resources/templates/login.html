@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="page-fill" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>迄今为止最简单的个人支付服务！！！ - 登录</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="keywords" content="个人微信、支付宝支付、第三方支付申请">
+  <meta name="description" content="个人微信、支付宝支付、第三方支付申请">
+  <link rel="shortcut icon" th:href="@{/images/favicon.ico}" type="image/x-icon"/>
+  <link rel="stylesheet" th:href="@{/css/login_style.css}"/>
+  <link rel="stylesheet" th:href="@{/css/login_reset.css}"/>
+</head>
+<body>
+<div id="particles-js">
+  <form class="login">
+    <div class="login-top">个人支付</div>
+    <div class="login-center clearfix">
+      <div class="login-center-img"><img th:src="@{images/name.png}"/></div>
+      <div class="login-center-input">
+        <input type="text" id="username" placeholder="请输入您的用户名" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的用户名'" autocomplete="on"/>
+        <div class="login-center-input-text">用户名</div>
+      </div>
+    </div>
+    <div class="login-center clearfix">
+      <div class="login-center-img"><img th:src="@{images/password.png}"/></div>
+      <div class="login-center-input">
+        <input type="password" id="password" placeholder="请输入您的密码" onfocus="this.placeholder=''" onblur="this.placeholder='请输入您的密码'" autocomplete="on"/>
+        <div class="login-center-input-text">密码</div>
+      </div>
+
+    </div>
+    <div class="login-button" onclick="login">
+      登陆
+    </div>
+  </form>
+  <div class="sk-rotating-plane"></div>
+</div>
+<script th:src="@{/js/particles.min.js}"></script>
+<script th:src="@{/js/app.js}"></script>
+<script th:src="@{/lib/layui/layui.js}"></script>
+<script>
+  layui.use(["okUtils", "okLayer"], function () {
+    $ = layui.jquery;
+    var okUtils = layui.okUtils;
+    okLayer = layui.okLayer;
+    document.querySelector(".login-button").onclick = function(){
+      $.ajax({
+        url:"/sys/login",
+        type: "POST",
+        data : {'username':$("#username").val(),
+          'password':$("#password").val()},
+        success: function (result) {
+          if(result.code==0){
+            okLayer.msg.greenTick(result.msg, function () {
+              sessionStorage.setItem('username', $("#username").val());
+              window.location = "index.html";
+            });
+          }else{
+            okLayer.msg.greenLaugh(result.msg);
+          }
+        }
+      });
+    };
+    $("body").keyup(function(event){
+      if(event.keyCode==13) {
+        $(".login-button").click();
+      }
+    });
+  });
+</script>
+</body>
+</html>
+
+
+
