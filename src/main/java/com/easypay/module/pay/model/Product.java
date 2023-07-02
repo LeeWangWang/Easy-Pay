@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 /**
  * @ClassName: Product
- * @Description:
+ * @Description: 产品订单信息
  * @Author: lww
  * @Date: 6/28/23 7:34 PM
  * @Version: V1

@@ -7,6 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @ClassName: RrExceptionHandler
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  * @Date: 6/28/23 7:19 PM
  * @Version: V1
  **/
+@RestControllerAdvice
 public class RrExceptionHandler {
 
     private Logger logger = LoggerFactory.getLogger(getClass());

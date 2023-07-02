@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 
 /**
  * @ClassName: Order
- * @Description: 订单
+ * @Description: app_order 订单
  * @Author: lww
  * @Date: 6/28/23 7:33 PM
  * @Version: V1

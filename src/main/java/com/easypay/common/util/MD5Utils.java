@@ -37,7 +37,8 @@ public class MD5Utils {
     }
 
     public static void main(String[] args) {
-        System.out.println(encrypt("admin", "admin2020"));
+        System.out.println(encrypt("admin", "admin2023"));
+        System.out.println(encrypt("pay", "pay2023"));
     }
 
 }

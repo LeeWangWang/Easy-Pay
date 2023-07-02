@@ -6,6 +6,7 @@ import org.hibernate.transform.Transformers;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,6 +20,7 @@ import java.util.List;
  * @Date: 6/28/23 10:58 AM
  * @Version: V1
  **/
+@Repository
 public class DynamicQueryImpl implements DynamicQuery {
 
     /**

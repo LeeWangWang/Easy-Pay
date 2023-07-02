@@ -10,6 +10,8 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.List;
@@ -24,7 +26,8 @@ import java.util.List;
 public class UserRealm extends AuthorizingRealm {
 
     @Autowired
-    private SysUserService userService;
+    private SysUserService sysUserService;
+
     /**
      * 获取授权
      * @param principals
@@ -34,8 +37,8 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         Long userId = ShiroUtils.getUserId();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        List<String> rolesSet = userService.listUserRoles(userId);
-        List<String> permsSet = userService.listUserPerms(userId);
+        List<String> rolesSet = sysUserService.listUserRoles(userId);
+        List<String> permsSet = sysUserService.listUserPerms(userId);
         info.setRoles(new HashSet<>(rolesSet));
         info.setStringPermissions(new HashSet<>(permsSet));
         return info;
@@ -52,7 +55,7 @@ public class UserRealm extends AuthorizingRealm {
             throws AuthenticationException {
         String username = (String) authenticationToken.getPrincipal();
         String password = new String((char[]) authenticationToken.getCredentials());
-        SysUser user = userService.getUser(username);
+        SysUser user = sysUserService.getUser(username);
         if (user == null) {
             throw new UnknownAccountException("账户不存在");
         }

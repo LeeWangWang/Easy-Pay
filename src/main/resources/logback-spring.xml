@@ -76,7 +76,7 @@
     <logger name="com.zaxxer.hikari"   level="ERROR"/>
 
     <!-- additivity 避免执行2次 -->
-    <logger name="com.payment" level="INFO" additivity="false">
+    <logger name="com.easypay" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="INFO_FILE"/>
         <appender-ref ref="ERROR_FILE"/>

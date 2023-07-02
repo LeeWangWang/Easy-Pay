@@ -335,8 +335,8 @@ CREATE TABLE `sys_user` (
 
 /*Data for the table `sys_user` */
 
-insert  into `sys_user`(`user_id`,`org_id`,`username`,`password`,`nickname`,`email`,`mobile`,`status`,`avatar_status`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`,`is_modify_pwd`) values (1,36,'admin','47346e5c32f1521286755fffd7256b9a','admin','100000@qq.com','17752859653',1,0,NULL,1,'2017-08-15 21:40:39','2020-11-07 10:35:13',1);
-insert  into `sys_user`(`user_id`,`org_id`,`username`,`password`,`nickname`,`email`,`mobile`,`status`,`avatar_status`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`,`is_modify_pwd`) values (2,36,'pay','17e43c37f739ab9fe51fde0600d725ae','爪洼笔记','100000@qq.com','13105423559',1,0,NULL,1,'2020-10-31 21:51:59','2020-11-07 10:59:36',NULL);
+insert  into `sys_user`(`user_id`,`org_id`,`username`,`password`,`nickname`,`email`,`mobile`,`status`,`avatar_status`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`,`is_modify_pwd`) values (1,36,'admin','admin','admin','100000@qq.com','17752859653',1,0,NULL,1,'2017-08-15 21:40:39','2020-11-07 10:35:13',1);
+insert  into `sys_user`(`user_id`,`org_id`,`username`,`password`,`nickname`,`email`,`mobile`,`status`,`avatar_status`,`remark`,`user_id_create`,`gmt_create`,`gmt_modified`,`is_modify_pwd`) values (2,36,'pay','admin','爪洼笔记','100000@qq.com','13105423559',1,0,NULL,1,'2020-10-31 21:51:59','2020-11-07 10:59:36',NULL);
 
 /*Table structure for table `sys_user_role` */
 

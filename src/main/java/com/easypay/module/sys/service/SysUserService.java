@@ -85,4 +85,5 @@ public interface SysUserService {
      * @return
      */
     List<SysUser> listUserByRole(String roleSign);
+
 }
